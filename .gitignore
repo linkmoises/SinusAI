@@ -219,3 +219,6 @@ __marimo__/
 
 # Datasets (PTB-XL u otros) — nunca versionar
 data/
+
+# Corte real de PTB-XL regenerado por tests/fixtures/corte_real/make_cut.py
+tests/fixtures/corte_real/ptbxl_cut/

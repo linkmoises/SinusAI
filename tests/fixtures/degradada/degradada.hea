@@ -1,0 +1,12 @@
+degradada 11 100 1000
+degradada.dat 16 1000.0(0)/mV 16 0 1111 28109 0 II
+degradada.dat 16 1000.0(0)/mV 16 0 1107 49796 0 III
+degradada.dat 16 1000.0(0)/mV 16 0 -1106 24518 0 AVR
+degradada.dat 16 1000.0(0)/mV 16 0 -2 2067 0 AVL
+degradada.dat 16 1000.0(0)/mV 16 0 1109 38960 0 AVF
+degradada.dat 16 1000.0(0)/mV 16 0 874 4629 0 V1
+degradada.dat 16 1000.0(0)/mV 16 0 927 15125 0 V2
+degradada.dat 16 1000.0(0)/mV 16 0 969 21374 0 V3
+degradada.dat 16 1000.0(0)/mV 16 0 1003 12066 0 V4
+degradada.dat 16 1000.0(0)/mV 16 0 1035 28283 0 V5
+degradada.dat 16 1000.0(0)/mV 16 0 1104 36711 0 V6

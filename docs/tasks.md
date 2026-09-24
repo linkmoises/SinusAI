@@ -20,12 +20,12 @@ Prohibido editar archivos de otro carril. La comunicación entre carriles es sol
 
 ## Fase 0 — Contratos (bloquea todo lo demás)
 
-- [ ] **T01 L0 — Congelar contratos de datos.** RF: RF-01, RF-05, RF-06. Toca: `docs/contracts.md`. Depende de: nada.
+- [x] **T01 L0 — Congelar contratos de datos.** RF: RF-01, RF-05, RF-06. Toca: `docs/contracts.md`. Depende de: nada.
   Hecho cuando: `contracts.md` define `ECGRecord/Signal12/FeatureVector/LabelVector8/Prediction8/TrainingRun` con campos y estados (completo/parcial/imposible, rechazo, incertidumbre), y también el layout del dataset (ruta `data/ptb-xl/`, archivos `.hea/.dat`, tabla de etiquetas PTB-XL) de modo que ningún carril necesite preguntar el formato ni la ubicación de los datos.
-- [ ] **T02 L0 — Entorno base y fixtures mínimas.** RF: RF-01, RF-08, RF-08b. Toca: `tests/fixtures/` (una subcarpeta por caso), `requirements.txt`. Depende de: T01.
-  Hecho cuando: `requirements.txt` fija las dependencias (neurokit2, wfdb, scikit-learn, streamlit y pytest) e instalables en el `.venv` con `pip install -r requirements.txt`; existen fixtures sintéticas nominal, degradada (derivación faltante), fallo total, no-EKG y PNG/JPG de juguete; además un subconjunto real cortado del dataset descargado (una ruta de corte reproducible que cubra las 8 clases incluyendo las raras) y un smoke-load que confirme que wfdb lee registros reales; todo usable por los carriles sin tocar el dataset completo.
-- [ ] **T03 L0 — Tabla de casos de avisos.** RF: RF-07a–d, RF-08. Toca: `docs/contracts.md` (apéndice). Depende de: T01.
-  Hecho cuando: la tabla rara-alta→07a, p<0,60→07b, VT 0,30→ambos, vacío→top-1, degradada p≥0,60→calidad+no-confiable, fallo total→sin etiquetas, no-EKG→rechazo queda escrita y LE/LG la citan sin ambigüedad.
+- [x] **T02 L0 — Entorno base y fixtures mínimas.** RF: RF-01, RF-08, RF-08b. Toca: `tests/fixtures/` (una subcarpeta por caso), `requirements.txt`. Depende de: T01.
+  Hecho cuando: `requirements.txt` fija las dependencias (neurokit2, wfdb, scikit-learn, streamlit y pytest) e instalables en el `.venv` con `pip install -r requirements.txt`; existen fixtures sintéticas nominal, degradada (derivación faltante), fallo total, no-EKG y PNG/JPG de juguete; además un subconjunto real cortado del dataset descargado (una ruta de corte reproducible que cubra los 12 targets evaluados de los TRES ejes del contrato v1.2 — 5 superclases, 5 ritmos, `ASMI`/`1AVB` — más un registro del catálogo declarado-no-evaluado, con la categoría diagnostic/rhythm/form leída de `scp_statements.csv`, no asumida) y un smoke-load que confirme que wfdb lee registros reales; todo usable por los carriles sin tocar el dataset completo.
+- [x] **T03 L0 — Tabla de casos de avisos.** RF: RF-07a–d, RF-08. Toca: `docs/contracts.md` (apéndice). Depende de: T01.
+  Hecho cuando: el Apéndice A de `contracts.md` fija caso por caso (por eje): declarada→`insuf14` sin probabilidad (catálogo §1.4.4, incl. VT/VF/ritmo nodal absorbidos de v1.0), p<0,60→`lowconf07b`, vacío por eje→top-1 de ese eje (RF-07c), degradada con p≥0,60→`quality08` + no confiable (prevalece sobre umbral), fallo total→`incertidumbre` sin etiquetas, no-EKG→`rechazo`, y el apilado RF-07d; queda escrita y LE/LG la citan sin ambigüedad.
 
 ## Fase 1 — Carriles paralelos (sin dependencias entre sí tras Fase 0)
 

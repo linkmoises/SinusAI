@@ -1,0 +1,55 @@
+ecg_id,patient_id,strat_fold,filename_lr,scp_codes,diagnostic_superclass,rhythm_eval,specific_eval,declared_codes,roles
+1,15709.0,3,records100/00000/00001_lr,"{'NORM': 100.0, 'LVOLT': 0.0, 'SR': 0.0}",['NORM'],['SR'],[],[],"['NORM', 'RHYTHM:SR']"
+2,13243.0,2,records100/00000/00002_lr,"{'NORM': 80.0, 'SBRAD': 0.0}",['NORM'],['SBRAD'],[],[],"['NORM', 'RHYTHM:SBRAD']"
+3,20372.0,5,records100/00000/00003_lr,"{'NORM': 100.0, 'SR': 0.0}",['NORM'],['SR'],[],[],"['NORM', 'RHYTHM:SR']"
+4,17014.0,3,records100/00000/00004_lr,"{'NORM': 100.0, 'SR': 0.0}",['NORM'],['SR'],[],[],['NORM']
+8,11275.0,9,records100/00000/00008_lr,"{'IMI': 35.0, 'ABQRS': 0.0, 'SR': 0.0}",['MI'],['SR'],[],[],['MI']
+9,18792.0,10,records100/00000/00009_lr,"{'NORM': 100.0, 'SR': 0.0}",['NORM'],['SR'],[],[],"['NORM', 'RHYTHM:SR']"
+11,11243.0,5,records100/00000/00011_lr,"{'NORM': 80.0, 'SARRH': 0.0}",['NORM'],['SARRH'],[],[],"['NORM', 'RHYTHM:SARRH']"
+12,11031.0,8,records100/00000/00012_lr,"{'NORM': 80.0, 'SBRAD': 0.0}",['NORM'],['SBRAD'],[],[],"['NORM', 'RHYTHM:SBRAD']"
+15,13375.0,3,records100/00000/00015_lr,"{'NORM': 100.0, 'SARRH': 0.0}",['NORM'],['SARRH'],[],[],"['NORM', 'RHYTHM:SARRH']"
+17,13619.0,9,records100/00000/00017_lr,"{'AFLT': 100.0, 'ABQRS': 0.0, 'AFIB': 0.0}",[],['AFIB'],[],['AFLT'],"['DECLARED:AFLT', 'RHYTHM:AFIB']"
+22,20978.0,4,records100/00000/00022_lr,"{'NDT': 100.0, 'SR': 0.0}",['STTC'],['SR'],[],[],['STTC']
+26,13619.0,9,records100/00000/00026_lr,"{'NST_': 100.0, 'DIG': 100.0, 'SR': 0.0}",['STTC'],['SR'],[],[],['STTC']
+28,13619.0,9,records100/00000/00028_lr,"{'NST_': 100.0, 'DIG': 100.0, 'SR': 0.0}",['STTC'],['SR'],[],[],['STTC']
+30,19053.0,9,records100/00000/00030_lr,"{'LVH': 100.0, 'SR': 0.0}",['HYP'],['SR'],[],[],['HYP']
+32,11154.0,1,records100/00000/00032_lr,"{'LPFB': 100.0, 'SR': 0.0}",['CD'],['SR'],[],[],['CD']
+39,13619.0,9,records100/00000/00039_lr,"{'IMI': 15.0, 'LNGQT': 100.0, 'NST_': 100.0, 'DIG': 100.0, 'ABQRS': 0.0, 'SR': 0.0}","['MI', 'STTC']",['SR'],[],[],"['MI', 'MULTI', 'STTC']"
+41,8420.0,9,records100/00000/00041_lr,"{'LAFB': 100.0, 'SR': 0.0}",['CD'],['SR'],[],[],['CD']
+45,18794.0,1,records100/00000/00045_lr,"{'IRBBB': 100.0, 'RAO/RAE': 50.0, 'RVH': 35.0, 'SR': 0.0}","['CD', 'HYP']",['SR'],[],[],"['CD', 'HYP', 'MULTI']"
+48,13672.0,9,records100/00000/00048_lr,"{'NDT': 100.0, 'SR': 0.0}",['STTC'],['SR'],[],[],['STTC']
+49,13958.0,9,records100/00000/00049_lr,"{'IVCD': 100.0, 'SR': 0.0}",['CD'],['SR'],[],[],['CD']
+50,16961.0,7,records100/00000/00050_lr,"{'LMI': 15.0, 'IVCD': 100.0, 'SR': 0.0}","['CD', 'MI']",['SR'],[],[],"['CD', 'MI', 'MULTI']"
+52,18153.0,1,records100/00000/00052_lr,"{'IRBBB': 100.0, 'SR': 0.0}",['CD'],['SR'],[],[],['CD']
+63,15265.0,10,records100/00000/00063_lr,"{'ASMI': 15.0, 'ABQRS': 0.0, 'SR': 0.0}",['MI'],['SR'],['ASMI'],[],"['MI', 'SPEC:ASMI']"
+65,19170.0,10,records100/00000/00065_lr,"{'IRBBB': 100.0, 'SR': 0.0}",['CD'],['SR'],[],[],['CD']
+76,21214.0,10,records100/00000/00076_lr,"{'NORM': 80.0, 'SARRH': 0.0}",['NORM'],['SARRH'],[],[],"['NORM', 'RHYTHM:SARRH']"
+96,21698.0,1,records100/00000/00096_lr,"{'LVH': 100.0, 'SR': 0.0}",['HYP'],['SR'],[],[],['HYP']
+102,9887.0,1,records100/00000/00102_lr,"{'ISCAL': 50.0, '1AVB': 100.0, 'SR': 0.0}","['CD', 'STTC']",['SR'],['1AVB'],[],"['CD', 'SPEC:1AVB', 'STTC']"
+103,13722.0,4,records100/00000/00103_lr,"{'IMI': 15.0, 'LAFB': 100.0, 'ABQRS': 0.0, 'STACH': 0.0}","['CD', 'MI']",['STACH'],[],[],"['CD', 'MI', 'RHYTHM:STACH']"
+106,16066.0,5,records100/00000/00106_lr,"{'ASMI': 50.0, 'LVH': 15.0, 'ABQRS': 0.0, 'SR': 0.0}","['HYP', 'MI']",['SR'],['ASMI'],[],"['HYP', 'MI', 'SPEC:ASMI']"
+108,11810.0,8,records100/00000/00108_lr,"{'NORM': 80.0, 'STACH': 0.0}",['NORM'],['STACH'],[],[],"['NORM', 'RHYTHM:STACH']"
+116,19695.0,10,records100/00000/00116_lr,"{'NDT': 100.0, 'SR': 0.0}",['STTC'],['SR'],[],[],['STTC']
+131,13698.0,8,records100/00000/00131_lr,"{'ASMI': 50.0, 'ABQRS': 0.0, 'SR': 0.0}",['MI'],['SR'],['ASMI'],[],"['MI', 'SPEC:ASMI']"
+138,8727.0,8,records100/00000/00138_lr,"{'LVH': 100.0, 'SR': 0.0}",['HYP'],['SR'],[],[],['HYP']
+152,9796.0,9,records100/00000/00152_lr,"{'LMI': 50.0, 'ISCIL': 100.0, 'AFIB': 0.0}","['MI', 'STTC']",['AFIB'],[],[],"['MI', 'RHYTHM:AFIB', 'STTC']"
+153,20254.0,9,records100/00000/00153_lr,"{'IMI': 15.0, 'ABQRS': 0.0, 'SR': 0.0}",['MI'],['SR'],[],[],['MI']
+155,12640.0,9,records100/00000/00155_lr,"{'ILMI': 35.0, 'ABQRS': 0.0, 'SR': 0.0}",['MI'],['SR'],[],[],['MI']
+162,9780.0,10,records100/00000/00162_lr,"{'ASMI': 50.0, 'LAFB': 100.0, 'LVH': 50.0, 'ISC_': 100.0, 'SR': 0.0}","['CD', 'HYP', 'MI', 'STTC']",['SR'],['ASMI'],[],"['CD', 'HYP', 'MI', 'MULTI', 'STTC']"
+182,12000.0,6,records100/00000/00182_lr,"{'ASMI': 35.0, 'LAFB': 100.0, '1AVB': 100.0, 'SR': 0.0}","['CD', 'MI']",['SR'],"['1AVB', 'ASMI']",[],"['CD', 'MI', 'SPEC:1AVB']"
+218,13925.0,10,records100/00000/00218_lr,"{'NORM': 80.0, '1AVB': 100.0, 'SR': 0.0}","['CD', 'NORM']",['SR'],['1AVB'],[],"['CD', 'NORM', 'SPEC:1AVB']"
+240,9601.0,10,records100/00000/00240_lr,"{'IMI': 50.0, 'ABQRS': 0.0, 'SBRAD': 0.0}",['MI'],['SBRAD'],[],[],"['MI', 'RHYTHM:SBRAD']"
+313,1110.0,5,records100/00000/00313_lr,"{'LVH': 50.0, 'VCLVH': 0.0, 'STD_': 0.0, 'SR': 0.0}",['HYP'],['SR'],[],[],['HYP']
+318,2034.0,10,records100/00000/00318_lr,"{'NDT': 100.0, 'DIG': 80.0, 'STD_': 0.0, 'AFIB': 0.0}",['STTC'],['AFIB'],[],[],"['RHYTHM:AFIB', 'STTC']"
+336,449.0,10,records100/00000/00336_lr,"{'LVH': 100.0, 'ISC_': 100.0, 'PVC': 100.0, 'NST_': 0.0, 'AFLT': 0.0, 'SVTAC': 0.0}","['HYP', 'STTC']",[],[],"['AFLT', 'SVTAC']","['DECLARED:AFLT', 'DECLARED:SVTAC', 'HYP', 'STTC']"
+892,6569.0,10,records100/00000/00892_lr,"{'NORM': 80.0, 'PVC': 0.0, 'STACH': 0.0}",['NORM'],['STACH'],[],[],"['NORM', 'RHYTHM:STACH']"
+959,1981.0,10,records100/00000/00959_lr,"{'ASMI': 15.0, 'IRBBB': 100.0, '3AVB': 100.0, 'SR': 0.0}","['CD', 'MI']",['SR'],['ASMI'],['3AVB'],"['CD', 'DECLARED:3AVB', 'MI']"
+1033,3161.0,7,records100/01000/01033_lr,"{'ASMI': 50.0, 'LVH': 50.0, 'ISC_': 100.0, '1AVB': 100.0, 'PVC': 100.0, 'INVT': 0.0, 'STD_': 0.0, 'SVTAC': 0.0}","['CD', 'HYP', 'MI', 'STTC']",[],"['1AVB', 'ASMI']",['SVTAC'],"['CD', 'DECLARED:SVTAC', 'HYP', 'MI', 'STTC']"
+1219,6184.0,10,records100/01000/01219_lr,"{'LVH': 35.0, 'VCLVH': 0.0, 'STACH': 0.0}",['HYP'],['STACH'],[],[],['HYP']
+1222,5402.0,9,records100/01000/01222_lr,"{'NDT': 100.0, '2AVB': 100.0}","['CD', 'STTC']",[],[],['2AVB'],"['CD', 'DECLARED:2AVB', 'STTC']"
+1299,14503.0,7,records100/01000/01299_lr,{'PSVT': 100.0},[],[],[],['PSVT'],['DECLARED:PSVT']
+2047,6859.0,8,records100/02000/02047_lr,"{'IMI': 100.0, 'LVH': 50.0, '3AVB': 100.0, 'QWAVE': 0.0, 'STD_': 0.0, 'SR': 0.0}","['CD', 'HYP', 'MI']",['SR'],[],['3AVB'],"['CD', 'DECLARED:3AVB', 'HYP', 'MI']"
+4470,20203.0,4,records100/04000/04470_lr,"{'ASMI': 50.0, 'ALMI': 50.0, 'CRBBB': 100.0, 'LAFB': 100.0, 'ABQRS': 0.0, 'SVARR': 0.0}","['CD', 'MI']",[],['ASMI'],['SVARR'],"['CD', 'DECLARED:SVARR', 'MI']"
+5343,16426.0,10,records100/05000/05343_lr,"{'IMI': 100.0, 'ASMI': 100.0, '1AVB': 100.0, 'LAO/LAE': 100.0, 'ABQRS': 0.0, 'SVARR': 0.0}","['CD', 'HYP', 'MI']",[],"['1AVB', 'ASMI']",['SVARR'],"['CD', 'DECLARED:SVARR', 'HYP', 'MI']"
+7889,8189.0,10,records100/07000/07889_lr,{'PSVT': 100.0},[],[],[],['PSVT'],['DECLARED:PSVT']
+19164,19343.0,10,records100/19000/19164_lr,"{'ISCIL': 100.0, '2AVB': 100.0, 'AFIB': 0.0}","['CD', 'STTC']",['AFIB'],[],['2AVB'],"['CD', 'DECLARED:2AVB', 'STTC']"
