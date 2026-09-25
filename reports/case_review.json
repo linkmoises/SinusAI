@@ -1,0 +1,69 @@
+{
+  "task": "T20",
+  "scope": "Done-2–Done-4",
+  "cases": [
+    {
+      "case": "rara→07a",
+      "expected": "Las claves declaradas, incluidos VT/VF/NODAL, aparecen sin probabilidad con insuf14",
+      "evidence": [
+        "tests/test_policy.py::test_insuf14_texto_literal_de_agentes_regla_3",
+        "tests/test_demo.py::test_render_declaradas_insuf14_siempre_y_nunca_con_probabilidad"
+      ],
+      "status": "demostrado"
+    },
+    {
+      "case": "p<0,60→07b",
+      "expected": "Cada etiqueta con probabilidad bajo 0,60 muestra confianza baja",
+      "evidence": [
+        "tests/test_policy.py::test_c2_lowconf07b_por_clave_solo_donde_p_baja",
+        "tests/test_demo.py::test_render_lowconf07b_por_clave_con_prediction_sintetica"
+      ],
+      "status": "demostrado"
+    },
+    {
+      "case": "degradada→calidad",
+      "expected": "Una entrada reconocible degradada emite quality08 y se presenta como no confiable",
+      "evidence": [
+        "tests/test_policy.py::test_c6_degradada_p_alta_no_confiable_con_aviso_de_calidad",
+        "tests/test_integration_signal.py::test_degradada_reconocible_sale_no_confiable_con_quality08",
+        "tests/test_integration_image.py::test_imagen_recorre_signal1d_y_muestra_calidad_degradada"
+      ],
+      "status": "demostrado"
+    },
+    {
+      "case": "fallo total→sin etiquetas",
+      "expected": "Extracción imposible produce incertidumbre y ningún eje o etiqueta",
+      "evidence": [
+        "tests/test_policy.py::test_c9_fallo_total_incertidumbre_sin_etiquetas",
+        "tests/test_integration_signal.py::test_fallo_total_produce_incertidumbre_sin_etiquetas",
+        "tests/test_demo.py::test_render_incertidumbre_sin_etiquetas"
+      ],
+      "status": "demostrado"
+    },
+    {
+      "case": "eje vacío→top-1",
+      "expected": "Un eje sin probabilidades sobre 0,60 conserva el top-1 con confianza baja",
+      "evidence": [
+        "tests/test_policy.py::test_c3_ritmo_vacio_muestra_top1_con_lowconf",
+        "tests/test_policy.py::test_c4_specific_vacio_muestra_top1_con_lowconf"
+      ],
+      "status": "demostrado"
+    },
+    {
+      "case": "no-EKG→rechazo",
+      "expected": "Una entrada no reconocible se rechaza sin señal ni predicción",
+      "evidence": [
+        "tests/test_ingest_signal.py::test_ingest_header_ilegible_se_rechaza_con_mensaje",
+        "tests/test_ingest_image.py::test_imagen_no_ecg_se_rechaza",
+        "tests/test_demo.py::test_render_rechazo_sin_prediccion"
+      ],
+      "status": "demostrado"
+    }
+  ],
+  "verification": {
+    "focused_command": "pytest -q tests/test_policy.py::test_insuf14_texto_literal_de_agentes_regla_3 tests/test_policy.py::test_c2_lowconf07b_por_clave_solo_donde_p_baja tests/test_policy.py::test_c6_degradada_p_alta_no_confiable_con_aviso_de_calidad tests/test_policy.py::test_c9_fallo_total_incertidumbre_sin_etiquetas tests/test_policy.py::test_c3_ritmo_vacio_muestra_top1_con_lowconf tests/test_policy.py::test_c4_specific_vacio_muestra_top1_con_lowconf tests/test_ingest_signal.py::test_ingest_header_ilegible_se_rechaza_con_mensaje tests/test_ingest_image.py::test_imagen_no_ecg_se_rechaza tests/test_integration_signal.py::test_degradada_reconocible_sale_no_confiable_con_quality08 tests/test_integration_signal.py::test_fallo_total_produce_incertidumbre_sin_etiquetas tests/test_integration_image.py::test_imagen_recorre_signal1d_y_muestra_calidad_degradada tests/test_demo.py::test_render_incertidumbre_sin_etiquetas tests/test_demo.py::test_render_rechazo_sin_prediccion",
+    "focused_result": "14 passed, 5 warnings",
+    "full_command": "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m pytest -q tests",
+    "full_result": "152 passed, 8 warnings"
+  }
+}

@@ -56,13 +56,13 @@ Prohibido editar archivos de otro carril. La comunicación entre carriles es sol
 
 ## Fase 2 — Integración y cierre (ordenada)
 
-- [ ] **T16 LH — Integración señal→demo Streamlit.** RF: Done-1, Done-5. Toca: solo config/pegamento de LH. Depende de: T05, T08, T11, T14.
-  Hecho cuando: una señal nominal recorre ingesta→features→policy→demo Streamlit con 8 probabilidades en vivo.
-- [ ] **T17 LH — Integración imagen→demo.** RF: Done-1. Toca: solo LH. Depende de: T06, T16.
+- [x] **T16 LH — Integración señal→demo Streamlit.** RF: Done-1, Done-5. Toca: solo config/pegamento de LH. Depende de: T05, T08, T11, T14.
+  Hecho cuando: una señal nominal recorre ingesta→features→policy→demo Streamlit con 12 probabilidades en vivo (tres ejes v1.2: 5 superclase + 5 ritmo + 2 específico, RF-06).
+- [x] **T17 LH — Integración imagen→demo.** RF: Done-1. Toca: solo LH. Depende de: T06, T16.
   Hecho cuando: un PNG/JPG recorre la misma vía por señal 1D (nunca píxeles), admitiendo aviso de calidad.
-- [ ] **T18 LH — Corrida de evaluación real.** RF: Done-6. Toca: `reports/`. Depende de: T12, T13.
+- [x] **T18 LH — Corrida de evaluación real.** RF: Done-6. Toca: `reports/`. Depende de: T12, T13.
   Hecho cuando: `reports/` contiene matriz×etiqueta, ROC/AUC×8 (o nota), importancia y metadatos con raras visibles, sobre la corrida real del dataset (`data/ptb-xl`).
-- [ ] **T19 LH — Presupuesto, privacidad y verde.** RF: Done-7, Done-8. Toca: `reports/` (tiempo de corrida), config pytest. Depende de: T18.
+- [x] **T19 LH — Presupuesto, privacidad y verde.** RF: Done-7, Done-8. Toca: `reports/` (tiempo de corrida), config pytest. Depende de: T18.
   Hecho cuando: vía señal <1 h CPU-only documentado, repo sin dataset/uploads/pacientes y `pytest` en verde.
-- [ ] **T20 LH — Repaso de casos Done-2–Done-4.** RF: Done-2, Done-3, Done-4. Toca: solo LH. Depende de: T16–T17.
+- [x] **T20 LH — Repaso de casos Done-2–Done-4.** RF: Done-2, Done-3, Done-4. Toca: solo LH. Depende de: T16–T17.
   Hecho cuando: quedan demostrados rara→07a, p<0,60→07b, degradada→calidad, fallo total→sin etiquetas, vacío→top-1 y no-EKG→rechazo.

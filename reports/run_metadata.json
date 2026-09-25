@@ -1,0 +1,39 @@
+{
+  "pipeline": "signal",
+  "scope": "PTB-XL records100: extracción de features clínicas y entrenamiento Random Forest",
+  "training_duration_s": 348.55606174468994,
+  "budget_s": 3600,
+  "within_budget": true,
+  "cpu_only": true,
+  "hardware": {
+    "cpu": "AMD Ryzen 7 PRO 4750U with Radeon Graphics",
+    "cores": 16,
+    "ram_gb": 32.8,
+    "os": "Linux-7.2.6-200.fc44.x86_64-x86_64-with-glibc2.43"
+  },
+  "dataset": {
+    "root": "data/ptb-xl",
+    "ptbxl_version": "1.0.3",
+    "split": "train = strat_fold != 10, test = strat_fold == 10 (canónico PTB-XL, §1.5)",
+    "seed": 42,
+    "training_rows": 19370,
+    "incomplete_rows_skipped": 231
+  },
+  "privacy": {
+    "source": "PTB-XL público y desidentificado",
+    "tracked_dataset_files": 0,
+    "tracked_upload_files": 0,
+    "tracked_patient_data_files": 0,
+    "dataset_ignored_by_git": true,
+    "uploads_are_ephemeral_outside_repo": true,
+    "temporary_upload_dirs_after_tests": 0
+  },
+  "tests": {
+    "config": "pytest.ini",
+    "command": "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m pytest -q tests",
+    "status": "passed",
+    "passed": 152,
+    "failed": 0,
+    "warnings": 8
+  }
+}

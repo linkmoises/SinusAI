@@ -19,10 +19,12 @@ T15 añade dos piezas:
   purge en `atexit`) y nunca persisten en disco/repo. El barrido de huérfanos de
   sesiones previas se hace al arrancar (`sweep_stale_uploads`).
 
-La vía completa ingesta→features→política→predicción se integra en T16/T17: en
-T15 la carga se procesa hasta la ingesta (M1/M2), se reconoce y se desplega su
-trazado. Sin carga, la demo sigue mostrando el caso sintético autónomo de T14
-(fixture nominal de `tests/fixtures/` + `Prediction` sintética de `src.policy`).
+La vía completa señal→demo la integra T16 (carril LH, `src.pipeline`) y la vía
+imagen la extiende T17: una señal WFDB nativa o una imagen PNG/JPG se digitaliza
+como `Signal12` y se recorre ingesta→features→modelo→política→predicción en vivo
+(`predict_signal`) para renderizar el `Prediction` real. Sin carga, la demo sigue
+mostrando el caso sintético autónomo de T14 (fixture nominal de `tests/fixtures/` +
+`Prediction` sintética de `src.policy`).
 """
 
 import atexit
@@ -42,6 +44,7 @@ if str(ROOT) not in sys.path:
 from src.ingest_image import ingest_image  # noqa: E402
 from src.ingest_signal import ECGRecord, Signal12, ingest_signal  # noqa: E402
 from src.labels import RHYTHM_EVALUATED, SPECIFIC_EVALUATED, SUPERCLASS_ORDER  # noqa: E402
+from src.pipeline import MODEL_MISSING_MSG, predict_signal  # noqa: E402
 from src.policy import (  # noqa: E402
     ALERT_TEXTS,
     INSUF14_TEXT,
@@ -267,12 +270,31 @@ def _ingest_upload(paths: list[Path]) -> ECGRecord:
     return ingest_signal(hea[0].with_suffix(""))
 
 
+def _render_live_signal_prediction(record: ECGRecord, st) -> None:
+    """Vía completa de una entrada reconocida (T16/T17): ingesta→predicción.
+
+    `predict_signal` (src.pipeline) infiere en vivo las probabilidades de las 12
+    salidas evaluadas y `render_prediction` las muestra con sus avisos. Sin
+    `model.pkl` se advierte y se mantiene al menos el trazado.
+    """
+    if record.signal is None:
+        return
+    try:
+        prediction = predict_signal(record.signal)
+    except FileNotFoundError:
+        st.warning(MODEL_MISSING_MSG)
+        render_trazado(st, record.signal)
+        return
+    render_prediction(prediction, record.signal, st)
+
+
 def _render_upload(uploads, st) -> None:
     """Guarda la carga en un temporal efímero e ingesta para reconocerla (T15, RF-14).
 
     En T15 la carga (señal o imagen) se procesa hasta la ingesta (M1/M2): si es
-    reconocible se muestra su trazado; si no, se rechaza. La vía completa
-    ingesta→features→política→predicción se integra en T16/T17. Los archivos se
+    reconocible se muestra su trazado; si no, se rechaza. T16/T17 añaden la vía
+    completa para señales WFDB nativas e imágenes PNG/JPG
+    (ingesta→features→modelo→política→predicción en vivo). Los archivos se
     eliminan al cerrar la sesión y no persisten en disco ni en el repo.
     """
     tmp = upload_dir(st)
@@ -288,6 +310,11 @@ def _render_upload(uploads, st) -> None:
         "los archivos se eliminan al cerrar la sesión y no persisten en disco ni "
         "en el repositorio (RF-14)."
     )
+
+    if record.source in {"signal", "image"}:
+        _render_live_signal_prediction(record, st)
+        return
+
     if record.signal is not None:
         render_trazado(st, record.signal)
     st.markdown(
