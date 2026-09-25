@@ -29,29 +29,29 @@ Prohibido editar archivos de otro carril. La comunicación entre carriles es sol
 
 ## Fase 1 — Carriles paralelos (sin dependencias entre sí tras Fase 0)
 
-- [ ] **T04 LA — Ingesta señal nominal.** RF: RF-01. Toca: `src/ingest_signal.*`, `tests/test_ingest_signal.*`. Depende de: T01–T02.
+- [x] **T04 LA — Ingesta señal nominal.** RF: RF-01. Toca: `src/ingest_signal.*`, `tests/test_ingest_signal.*`. Depende de: T01–T02.
   Hecho cuando: `pytest tests/test_ingest_signal.*` acepta fixture nominal 12×100 Hz×10 s y expone metadatos.
-- [ ] **T05 LA — Ingesta señal degradada vs. rechazo.** RF: RF-08, RF-08b. Toca: mismos que T04. Depende de: T04.
+- [x] **T05 LA — Ingesta señal degradada vs. rechazo.** RF: RF-08, RF-08b. Toca: mismos que T04. Depende de: T04.
   Hecho cuando: fixture degradada se marca degradada (no se rechaza) y header ilegible se rechaza con mensaje, con tests en verde.
-- [ ] **T06 LB — Ingesta imagen PNG/JPG → 1D.** RF: RF-02, RF-03, RF-14. Toca: `src/ingest_image.*`, `tests/test_ingest_image.*`. Depende de: T01–T02.
+- [x] **T06 LB — Ingesta imagen PNG/JPG → 1D.** RF: RF-02, RF-03, RF-14. Toca: `src/ingest_image.*`, `tests/test_ingest_image.*`. Depende de: T01–T02.
   Hecho cuando: PNG/JPG de juguete con 12 trazados produce `Signal12`; sin 12 trazados aplica rechazo; solo usa temporales efímeros.
-- [ ] **T07 LC — Vector clínico cerrado.** RF: RF-03, RF-04. Toca: `src/features.*`, `tests/test_features.*`. Depende de: T01–T02.
+- [x] **T07 LC — Vector clínico cerrado.** RF: RF-03, RF-04. Toca: `src/features.*`, `tests/test_features.*`. Depende de: T01–T02.
   Hecho cuando: de una `Signal12` sintética sale el vector cerrado (QRS, QT/QTc, FC, eje, HRV) sin usar píxeles.
-- [ ] **T08 LC — Estados parcial/imposible.** RF: RF-08. Toca: mismos que T07. Depende de: T07.
+- [x] **T08 LC — Estados parcial/imposible.** RF: RF-08. Toca: mismos que T07. Depende de: T07.
   Hecho cuando: fixture degradada da estado parcial y la de fallo total da imposible, bloqueando RF-07c según contratos.
-- [ ] **T09 LD — Mapeo 8 salidas planas.** RF: RF-05. Toca: `src/labels.*`, `docs/label_mapping.md`, `tests/test_labels.*`. Depende de: T01.
+- [x] **T09 LD — Mapeo 8 salidas planas.** RF: RF-05. Toca: `src/labels.*`, `docs/label_mapping.md`, `tests/test_labels.*`. Depende de: T01.
   Hecho cuando: `label_mapping.md` documenta statements→8 salidas con NORM plana y los tests lo verifican con cabeceras sintéticas.
-- [ ] **T10 LE — Avisos 07a–07d.** RF: RF-06, RF-07a–d. Toca: `src/policy.*`, `tests/test_policy.*`. Depende de: T01, T03.
+- [x] **T10 LE — Avisos 07a–07d.** RF: RF-06, RF-07a–d. Toca: `src/policy.*`, `tests/test_policy.*`. Depende de: T01, T03.
   Hecho cuando: la tabla de contratos pasa caso por caso (incluido apilado VT 0,30 y vacío→top-1) con textos literales de AGENTS regla 3.
-- [ ] **T11 LE — Prevalencias RF-08 sobre 07b/07c.** RF: RF-08, RF-08b. Toca: mismos que T10. Depende de: T10.
+- [x] **T11 LE — Prevalencias RF-08 sobre 07b/07c.** RF: RF-08, RF-08b. Toca: mismos que T10. Depende de: T10.
   Hecho cuando: degradada con p≥0,60 sale como no-confiable con aviso de calidad y el fallo total sale sin etiquetas (RF-07c no aplica).
-- [ ] **T12 LF — Entrenamiento CPU-only reproducible.** RF: RF-05, RF-13, RF-14. Toca: `train.py`. Depende de: T01, T02, T09 (usa LC como caja negra vía contratos).
+- [x] **T12 LF — Entrenamiento CPU-only reproducible.** RF: RF-05, RF-13, RF-14. Toca: `train.py`. Depende de: T01, T02, T09 (usa LC como caja negra vía contratos).
   Hecho cuando: `train.py` lee el dataset desde la ruta indicada en contratos (T01), entrena solo con PTB-XL features→`model.pkl` + metadatos (versión/split/seed/laptop/duración), sin GPU ni datos de pacientes.
-- [ ] **T13 LF — Evaluación uno-vs-resto.** RF: RF-11, RF-12. Toca: `src/evaluate.*`, `tests/test_evaluate.*`. Depende de: T01.
-  Hecho cuando: con predicciones sintéticas genera matriz×etiqueta, ROC/AUC×8 (o nota de insuficiencia) e importancia, sin ocultar raras.
-- [ ] **T14 LG — Demo Streamlit contenido exacto.** RF: RF-09. Toca: `app.py` (Streamlit), `tests/test_demo.*`. Depende de: T01, T03.
-  Hecho cuando: `streamlit run app.py` muestra trazado + 8 probabilidades + avisos aplicables y nada de features/gráficas, verificado por test con `Prediction8` sintética.
-- [ ] **T15 LG — Aviso permanente y efimeralidad.** RF: RF-10, RF-14. Toca: mismos que T14. Depende de: T14.
+- [x] **T13 LF — Evaluación uno-vs-resto.** RF: RF-11, RF-12. Toca: `src/evaluate.*`, `tests/test_evaluate.*`. Depende de: T01.
+  Hecho cuando: con predicciones sintéticas genera matriz×etiqueta, ROC/AUC por cada una de las salidas (o nota de insuficiencia) e importancia, sin ocultar raras.
+- [x] **T14 LG — Demo Streamlit contenido exacto.** RF: RF-09. Toca: `app.py` (Streamlit), `tests/test_demo.*`. Depende de: T01, T03.
+  Hecho cuando: `streamlit run app.py` muestra trazado + 12 probabilidades (tres ejes v1.2: 5 superclase + 5 ritmo + 2 específico, RF-06) + avisos aplicables (lowconf07b/insuf14/quality08, §2.6.1) y nada de features/gráficas, verificado por test con `Prediction` sintética (`tests/test_demo.py`).
+- [x] **T15 LG — Aviso permanente y efimeralidad.** RF: RF-10, RF-14. Toca: mismos que T14. Depende de: T14.
   Hecho cuando: el aviso pedagógico es visible siempre y los uploads se eliminan al cerrar sesión sin persistir en disco/repo.
 
 ## Fase 2 — Integración y cierre (ordenada)
